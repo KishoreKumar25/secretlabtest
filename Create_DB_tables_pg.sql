@@ -1,0 +1,66 @@
+-- Postgres Table Creation Script
+--
+
+--
+-- Table structure for table transaction
+--
+
+CREATE TABLE transaction (
+  ID VARCHAR NOT NULL,
+  ORDER_ID VARCHAR NOT NULL,
+  STATUS VARCHAR(45) NOT NULL,
+  CREATED_AT TIMESTAMP NOT NULL,
+  PRIMARY KEY (id)
+); 
+
+--
+-- Table structure for table orders
+--
+
+CREATE TABLE orders (
+  id VARCHAR NOT NULL,
+  PROCESSED_TIMESTAMP TIMESTAMP NOT NULL,
+  CUSTOMER_ID VARCHAR NOT NULL,
+  PRIMARY KEY (id)
+);
+
+--
+-- Table structure for table order_items
+--
+
+CREATE TABLE order_lines (
+  id VARCHAR NOT NULL,
+  QUANTITY INT NOT NULL,
+  VARIANT_ID VARCHAR NOT NULL,
+  REVENUE INT NOT NULL,
+  ORDER_ID VARCHAR NOT NULL,
+  PRIMARY KEY (id)
+);
+
+--
+-- Table structure for table product
+--
+
+CREATE TABLE product (
+  id VARCHAR NOT NULL,
+  TITLE VARCHAR(255) NOT NULL,
+  PRODUCT_TYPE VARCHAR(45) NOT NULL,
+  CREATED_AT TIMESTAMP NOT NULL
+  PRIMARY KEY (id)
+);
+
+--
+-- Table structure for table variant
+--
+
+CREATE TABLE variant (
+  id VARCHAR NOT NULL,
+  PRODUCT_ID VARCHAR NOT NULL,
+  PRICE INT NOT NULL,
+  TITLE VARCHAR(255) NOT NULL,
+  CREATED_AT TIMESTAMP NOT NULL,
+  UPDATED_AT TIMESTAMP NOT NULL,
+  INGESTED_AT TIMESTAMP NOT NULL
+  PRIMARY KEY (id)
+);
+
